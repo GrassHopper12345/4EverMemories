@@ -16,7 +16,7 @@ const server = new ApolloServer({
   resolvers,
 });
 app.use(cors());
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -43,13 +43,14 @@ const newApolloServer = async () => {
   });
 };
 
-// app.listen(PORT, () => {
-//   // Perform a database connection when server starts
-//   dbo.connectToServer(function (err) {
-//     if (err) console.error(err);
-//   });
-//   console.log(`Server is running on port: ${PORT}`);
-//   console.log(`Use GraphQL at http://localhost:${PORT}/graphql`);
-// });
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/dist')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  });
+}
+
+
 
 newApolloServer();
