@@ -2,7 +2,7 @@ const express = require("express");
 const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 require("dotenv").config({ path: "./.env" });
-
+const path = require('path');
 const cors = require("cors");
 
 // Get MongoDB driver connection
