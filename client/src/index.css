@@ -117,8 +117,17 @@ nav ul li a:hover {
 }
 
 /* Home.jsx CSS */
-.serviceimage {
-  width: 400px;
+.service-image {
+  width: 500px;
+  height: auto; 
+  margin-bottom: 20px; 
+  box-shadow: 10px 14px 16px rgba(0, 0, 0, 0.1); 
+  transition: box-shadow 0.3s ease; 
+  border-radius: 10px;
+}
+
+.service-image:hover {
+  box-shadow: 20px 18px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .home-container {
