@@ -27,8 +27,7 @@ const Db = process.env.ATLAS_URI;
 const mongoose = require("mongoose");
 
 mongoose.connect(
-  // process.env.ATLAS_URI || "mongodb://127.0.0.1:27017/googlebooks"
-  "mongodb://127.0.0.1:27017/testquery"
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/testquery"
 );
 
 module.exports = mongoose.connection;
